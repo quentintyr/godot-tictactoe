@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://cm54b2l2uk013"]
+
+[ext_resource type="Script" uid="uid://c52poml37ckrt" path="res://screens/defaultGamemode/defaultGamemode.gd" id="1_4oelq"]
+
+[node name="defaultGamemode" type="Node2D" unique_id=841699464]
+script = ExtResource("1_4oelq")
+
+[node name="returnButton" type="MenuButton" parent="." unique_id=1696253039]
+visible = false
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 239.0
+offset_bottom = 103.0
+text = "Return to Main Menu"
+flat = false
+
+[node name="playerChooser" type="PopupMenu" parent="." unique_id=535759658]
+oversampling_override = 1.0
+position = Vector2i(250, 100)
+size = Vector2i(400, 400)
+
+[node name="playerX" type="MenuButton" parent="playerChooser" unique_id=1899816775]
+offset_left = 54.0
+offset_top = 167.0
+offset_right = 196.0
+offset_bottom = 286.0
+text = "X"
+flat = false
+
+[node name="playerO" type="MenuButton" parent="playerChooser" unique_id=316736616]
+offset_left = 214.0
+offset_top = 167.0
+offset_right = 358.0
+offset_bottom = 284.0
+text = "O"
+flat = false
+
+[node name="Label" type="Label" parent="playerChooser" unique_id=1143375415]
+offset_left = 137.0
+offset_top = 101.0
+offset_right = 286.0
+offset_bottom = 124.0
+text = "Choose your player"
+
+[connection signal="pressed" from="returnButton" to="." method="_on_return_button_pressed"]
+[connection signal="ready" from="playerChooser" to="." method="_on_player_chooser_ready"]
