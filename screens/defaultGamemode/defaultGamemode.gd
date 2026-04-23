@@ -18,10 +18,15 @@ func _ready() -> void:
 	for i in range(boardArray.size()):
 		for j in range(boardArray[i].size()):
 			print(boardArray[i][j])
+	
+	$field.hide()
 		
 	
 	
 # show map visually
+func _load_map() -> void:
+	$field.show()
+
 
 # let player decide if X or O
 func _choosePlayer() -> void:
@@ -33,7 +38,7 @@ func _choosePlayer() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	_choosePlayer()
-	
+
 
 enum cellState {
 	EMPTY,
@@ -48,18 +53,17 @@ enum Players {
 
 func _on_return_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://screens/mainMenu/mainMenu.tscn")
-
-func _load_map() -> void:
-	pass
 	
 func _on_player_x_pressed() -> void:
 	print("x pressed")
 	isPlayerXTurn = true
 	isPlayerSelected = true
 	$playerChooser.hide()
+	_load_map()
 
 func _on_player_o_pressed() -> void:
 	print("o pressed")
 	isPlayerXTurn = false
 	isPlayerSelected = true
 	$playerChooser.hide()
+	_load_map()

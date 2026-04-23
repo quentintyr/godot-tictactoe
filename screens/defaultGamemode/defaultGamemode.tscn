@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://cm54b2l2uk013"]
 
 [ext_resource type="Script" uid="uid://c52poml37ckrt" path="res://screens/defaultGamemode/defaultGamemode.gd" id="1_4oelq"]
+[ext_resource type="Texture2D" uid="uid://cipolc5s50wn3" path="res://assets/tictactoe_field.png" id="2_ge001"]
 
 [node name="defaultGamemode" type="Node2D" unique_id=841699464]
 script = ExtResource("1_4oelq")
 
 [node name="returnButton" type="MenuButton" parent="." unique_id=1696253039]
-visible = false
 offset_left = 25.0
 offset_top = 25.0
 offset_right = 239.0
@@ -42,7 +42,23 @@ offset_right = 286.0
 offset_bottom = 124.0
 text = "Choose your player"
 
+[node name="field" type="Sprite2D" parent="." unique_id=444456809]
+position = Vector2(566, 307)
+scale = Vector2(0.59491193, 0.6092832)
+texture = ExtResource("2_ge001")
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=1274304955]
+offset_left = 311.0
+offset_top = 157.0
+offset_right = 784.0
+offset_bottom = 498.0
+columns = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="GridContainer" unique_id=66294688]
+layout_mode = 2
+
 [connection signal="pressed" from="returnButton" to="." method="_on_return_button_pressed"]
 [connection signal="ready" from="playerChooser" to="." method="_on_player_chooser_ready"]
 [connection signal="pressed" from="playerChooser/playerX" to="." method="_on_player_x_pressed"]
 [connection signal="pressed" from="playerChooser/playerO" to="." method="_on_player_o_pressed"]
+[connection signal="draw" from="field" to="." method="_on_field_draw"]
