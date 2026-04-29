@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://d3noqb4ecposs" path="res://screens/mainMenu/mainMenu.gd" id="1_45dwj"]
 
 [node name="mainMenu" type="Control" unique_id=520503345]
+custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,22 +12,39 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_45dwj")
 
-[node name="MenuButton" type="MenuButton" parent="." unique_id=754203251]
-layout_mode = 0
-offset_left = 458.0
-offset_top = 272.0
-offset_right = 672.0
-offset_bottom = 350.0
+[node name="mainWindow" type="Window" parent="." unique_id=9181049]
+oversampling_override = 1.0
+initial_position = 2
+size = Vector2i(1920, 1080)
+
+[node name="MenuButton" type="MenuButton" parent="mainWindow" unique_id=754203251]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.0
+offset_top = -39.0
+offset_right = 107.0
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Start"
 flat = false
 
-[node name="SettingsButton" type="MenuButton" parent="." unique_id=2966858]
-layout_mode = 0
-offset_left = 458.0
-offset_top = 361.0
-offset_right = 672.0
-offset_bottom = 439.0
+[node name="SettingsButton" type="MenuButton" parent="mainWindow" unique_id=2966858]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.0
+offset_top = 50.26999
+offset_right = 107.0
+offset_bottom = 128.26984
+grow_horizontal = 2
+grow_vertical = 2
 text = "Settings"
 flat = false
 
-[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="mainWindow/MenuButton" to="." method="_on_menu_button_pressed"]
