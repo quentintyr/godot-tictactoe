@@ -1,19 +1,17 @@
-extends Node2D
+extends Control
 
-var isPlayerXTurn = false # default player is X
+var isPlayerXTurn = true # default player is X
 var isPlayerSelected = false # check if player was selected
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	var turns = 0 # set turns to zero on start
-	
-	# set each tile on the map to empty on game start
-	var boardArray = [
+var turns = 0 # set turns to zero on start
+# set each tile on the map to empty on game start
+var boardArray = [
 		[cellState.EMPTY, cellState.EMPTY, cellState.EMPTY],
 		[cellState.EMPTY, cellState.EMPTY, cellState.EMPTY],
 		[cellState.EMPTY, cellState.EMPTY, cellState.EMPTY]
 	]
-	
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
 	# iterate through array to get current states of tiles
 	for i in range(boardArray.size()):
 		for j in range(boardArray[i].size()):
@@ -51,6 +49,14 @@ enum Players {
 	PLAYER_O
 }
 
+func player_turn_switch() -> void:
+	if (isPlayerXTurn == true): # if player is currently x switch to circle
+		isPlayerXTurn = false
+		print("player circle")
+	else:
+		isPlayerXTurn = true # if the player is currently not x, switch to x
+		print("player x")
+
 func _on_return_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://screens/mainMenu/mainMenu.tscn")
 	
@@ -67,3 +73,4 @@ func _on_player_o_pressed() -> void:
 	isPlayerSelected = true
 	$playerChooser.hide()
 	_load_map()
+	
