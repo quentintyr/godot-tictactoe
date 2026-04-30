@@ -49,12 +49,12 @@ offset_right = 286.0
 offset_bottom = 124.0
 text = "Choose your player"
 
-[node name="field" type="Sprite2D" parent="." unique_id=444456809]
+[node name="fieldSprite" type="Sprite2D" parent="." unique_id=444456809]
 position = Vector2(1016, 527)
 scale = Vector2(9.845, 10.082)
 texture = ExtResource("2_5g60e")
 
-[node name="field2" type="GridContainer" parent="." unique_id=1274304955]
+[node name="fieldButtonGrid" type="GridContainer" parent="." unique_id=1274304955]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 1
 offset_left = 742.0
@@ -64,65 +64,86 @@ offset_bottom = 808.0
 columns = 3
 script = ExtResource("3_5g60e")
 
-[node name="fieldZero" type="Button" parent="field2" unique_id=2006656900]
+[node name="fieldZero" type="Button" parent="fieldButtonGrid" unique_id=2006656900]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
 flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="fieldOne" type="Button" parent="field2" unique_id=120903127]
+[node name="fieldOne" type="Button" parent="fieldButtonGrid" unique_id=120903127]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
 flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="fieldTwo" type="Button" parent="field2" unique_id=430083462]
+[node name="fieldTwo" type="Button" parent="fieldButtonGrid" unique_id=430083462]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
 flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="fieldThree" type="Button" parent="field2" unique_id=1491790171]
+[node name="fieldThree" type="Button" parent="fieldButtonGrid" unique_id=1491790171]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
 flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="fieldFour" type="Button" parent="field2" unique_id=1721053407]
+[node name="fieldFour" type="Button" parent="fieldButtonGrid" unique_id=1721053407]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
 flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="fieldFive" type="Button" parent="field2" unique_id=582701336]
+[node name="fieldFive" type="Button" parent="fieldButtonGrid" unique_id=582701336]
 layout_mode = 2
 flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="fieldSix" type="Button" parent="field2" unique_id=333306426]
+[node name="fieldSix" type="Button" parent="fieldButtonGrid" unique_id=333306426]
 custom_minimum_size = Vector2(180, 180)
 layout_mode = 2
 flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="fieldSeven" type="Button" parent="field2" unique_id=903653885]
+[node name="fieldSeven" type="Button" parent="fieldButtonGrid" unique_id=903653885]
 layout_mode = 2
 flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="fieldEight" type="Button" parent="field2" unique_id=108291634]
+[node name="fieldEight" type="Button" parent="fieldButtonGrid" unique_id=108291634]
 layout_mode = 2
 flat = true
 icon_alignment = 1
 expand_icon = true
+
+[node name="xTurnsLabel" type="Label" parent="." unique_id=334342268]
+layout_mode = 0
+offset_left = 1106.0
+offset_top = 100.0
+offset_right = 1321.0
+offset_bottom = 180.0
+text = "0"
+
+[node name="oTurnsLabel" type="Label" parent="." unique_id=1000014717]
+layout_mode = 0
+offset_left = 721.0
+offset_top = 108.0
+offset_right = 974.0
+offset_bottom = 185.0
+text = "0"
+
+[node name="timerLabel" type="Label" parent="." unique_id=1190790982]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
 
 [connection signal="pressed" from="returnButton" to="." method="_on_return_button_pressed"]
 [connection signal="pressed" from="playerChooser/playerX" to="." method="_on_player_x_pressed"]

@@ -41,5 +41,4 @@ func _on_field_pressed(index: int) -> void:
 	else:
 		buttons[index].icon = o_icon
 		game.boardArray[row][col] = game.cellState.CIRCLE
-
 	game.player_turn_switch()
