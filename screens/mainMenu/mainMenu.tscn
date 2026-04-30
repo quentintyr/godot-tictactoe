@@ -5,9 +5,15 @@
 [node name="mainMenu" type="Control" unique_id=520503345]
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_45dwj")
@@ -17,7 +23,7 @@ oversampling_override = 1.0
 initial_position = 2
 size = Vector2i(1920, 1080)
 
-[node name="MenuButton" type="MenuButton" parent="mainWindow" unique_id=754203251]
+[node name="menuButton" type="MenuButton" parent="mainWindow" unique_id=754203251]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -32,7 +38,7 @@ grow_vertical = 2
 text = "Start"
 flat = false
 
-[node name="SettingsButton" type="MenuButton" parent="mainWindow" unique_id=2966858]
+[node name="settingsButton" type="MenuButton" parent="mainWindow" unique_id=2966858]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -47,4 +53,19 @@ grow_vertical = 2
 text = "Settings"
 flat = false
 
-[connection signal="pressed" from="mainWindow/MenuButton" to="." method="_on_menu_button_pressed"]
+[node name="exitButton" type="Button" parent="mainWindow" unique_id=198375762]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.0
+offset_top = 141.65503
+offset_right = 107.0
+offset_bottom = 219.65503
+grow_horizontal = 2
+grow_vertical = 2
+text = "Close"
+
+[connection signal="pressed" from="mainWindow/menuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="mainWindow/exitButton" to="." method="_on_exit_button_pressed"]
