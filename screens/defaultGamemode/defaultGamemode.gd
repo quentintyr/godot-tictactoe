@@ -2,8 +2,10 @@ extends Control
 
 var isPlayerXTurn = true # default player is X
 var isPlayerSelected = false # check if player was selected
-var turns = 0 # set turns to zero on start
+var xTurns = 0 # set turns to zero on start
+var oTurns = 0
 # set each tile on the map to empty on game start
+
 var boardArray = [
 		[cellState.EMPTY, cellState.EMPTY, cellState.EMPTY],
 		[cellState.EMPTY, cellState.EMPTY, cellState.EMPTY],
@@ -16,14 +18,12 @@ func _ready() -> void:
 	for i in range(boardArray.size()):
 		for j in range(boardArray[i].size()):
 			print(boardArray[i][j])
-	
-	$field.hide()
-		
+	$fieldSprite.hide()
 	
 	
 # show map visually
 func _load_map() -> void:
-	$field.show()
+	$fieldSprite.show()
 
 
 # let player decide if X or O
@@ -36,7 +36,6 @@ func _choosePlayer() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	_choosePlayer()
-
 
 enum cellState {
 	EMPTY,
@@ -52,10 +51,18 @@ enum Players {
 func player_turn_switch() -> void:
 	if (isPlayerXTurn == true): # if player is currently x switch to circle
 		isPlayerXTurn = false
-		print("player circle")
+		displayPlayerTurns()
 	else:
 		isPlayerXTurn = true # if the player is currently not x, switch to x
-		print("player x")
+		displayPlayerTurns()
+		
+func displayPlayerTurns() -> void:
+	if (isPlayerXTurn == true):
+		xTurns += 1
+		$xTurnsLabel.set_text(str(xTurns))
+	else:
+		oTurns += 1
+		$oTurnsLabel.set_text(str(oTurns))
 
 func _on_return_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://screens/mainMenu/mainMenu.tscn")
